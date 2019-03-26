@@ -1,4 +1,4 @@
-package com.ahmedadeltito.photoeditor.widget;
+package cordova.plugin.photo.editor.photoeditor.widget;
 
 /**
  * Created by Ahmed Adel on 5/7/17.
@@ -22,7 +22,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-import com.ahmedadeltito.photoeditor.R;
+import cordova.plugin.photo.editor.photoeditor.R;
 
 /**
  * A realtime blurring overlay (like iOS UIVisualEffectView). Just put it above

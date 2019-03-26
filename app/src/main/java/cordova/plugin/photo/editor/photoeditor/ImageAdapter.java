@@ -1,4 +1,4 @@
-package com.ahmedadeltito.photoeditor;
+package cordova.plugin.photo.editor.photoeditor;
 
 import android.content.Context;
 import android.graphics.Bitmap;

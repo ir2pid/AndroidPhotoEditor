@@ -1,4 +1,4 @@
-package com.ahmedadeltito.photoeditor;
+package cordova.plugin.photo.editor.photoeditor;
 
 import org.junit.Test;
 

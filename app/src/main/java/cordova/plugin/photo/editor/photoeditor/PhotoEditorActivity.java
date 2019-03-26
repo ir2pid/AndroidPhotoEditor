@@ -1,4 +1,4 @@
-package com.ahmedadeltito.photoeditor;
+package cordova.plugin.photo.editor.photoeditor;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,7 +27,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ahmedadeltito.photoeditor.widget.SlidingUpPanelLayout;
+import cordova.plugin.photo.editor.photoeditor.widget.SlidingUpPanelLayout;
 import com.ahmedadeltito.photoeditorsdk.BrushDrawingView;
 import com.ahmedadeltito.photoeditorsdk.OnPhotoEditorSDKListener;
 import com.ahmedadeltito.photoeditorsdk.PhotoEditorSDK;

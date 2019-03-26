@@ -1,4 +1,4 @@
-package com.ahmedadeltito.photoeditor;
+package cordova.plugin.photo.editor.photoeditor;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;

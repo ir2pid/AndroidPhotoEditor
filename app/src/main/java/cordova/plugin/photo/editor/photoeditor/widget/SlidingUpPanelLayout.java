@@ -1,4 +1,4 @@
-package com.ahmedadeltito.photoeditor.widget;
+package cordova.plugin.photo.editor.photoeditor.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -24,7 +24,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.ListView;
 import android.widget.ScrollView;
 
-import com.ahmedadeltito.photoeditor.R;
+import cordova.plugin.photo.editor.photoeditor.R;
 import com.nineoldandroids.view.animation.AnimatorProxy;
 
 public class SlidingUpPanelLayout extends ViewGroup {
