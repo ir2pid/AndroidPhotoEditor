@@ -66,8 +66,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         options.inSampleSize = 1;
         Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath, options);
 
-        Typeface newFont = Typeface.createFromAsset(getAssets(), "Eventtus-Icons.ttf");
-        emojiFont = Typeface.createFromAsset(getAssets(), "emojione-android.ttf");
+        Typeface newFont = FontManager.INSTANCE.getTypeface(this, FontManager.INSTANCE.getFONTAWESOME());//Typeface.createFromAsset(getAssets(), "Eventtus-Icons.ttf");
+        emojiFont = FontManager.INSTANCE.getTypeface(this, FontManager.INSTANCE.getEMOJIONE());//Typeface.createFromAsset(getAssets(), "emojione-android.ttf");
 
         BrushDrawingView brushDrawingView = (BrushDrawingView) findViewById(R.id.drawing_view);
         drawingViewColorPickerRecyclerView = (RecyclerView) findViewById(R.id.drawing_view_color_picker_recycler_view);
