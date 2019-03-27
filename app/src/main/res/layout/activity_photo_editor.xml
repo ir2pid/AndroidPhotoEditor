@@ -113,8 +113,8 @@
                     android:layout_height="wrap_content"
                     android:padding="15dp"
                     android:text="@string/ic_close"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
                 <TextView
                     android:id="@+id/add_text_tv"
@@ -124,8 +124,8 @@
                     android:layout_alignParentTop="true"
                     android:padding="15dp"
                     android:text="@string/ic_text"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
                 <TextView
                     android:id="@+id/add_pencil_tv"
@@ -134,8 +134,8 @@
                     android:layout_toStartOf="@+id/add_text_tv"
                     android:padding="15dp"
                     android:text="@string/ic_draw"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
                 <TextView
                     android:id="@+id/add_image_emoji_tv"
@@ -144,8 +144,8 @@
                     android:layout_toStartOf="@+id/add_pencil_tv"
                     android:padding="15dp"
                     android:text="@string/ic_images"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
                 <TextView
                     android:id="@+id/add_filter_tv"
@@ -153,9 +153,9 @@
                     android:layout_height="wrap_content"
                     android:layout_toStartOf="@+id/add_pencil_tv"
                     android:padding="15dp"
-                    android:text="@string/ic_images"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
+                    android:text="@string/ic_filter"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
             </RelativeLayout>
 
@@ -184,8 +184,8 @@
                     android:layout_centerVertical="true"
                     android:gravity="center"
                     android:text="@string/ic_save"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
                 <TextView
                     android:id="@+id/save_text_tv"
@@ -196,8 +196,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginTop="4dp"
                     android:text="@string/save"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_text_size" />
 
                 <TextView
                     android:id="@+id/clear_all_tv"
@@ -210,8 +210,8 @@
                     android:layout_toEndOf="@+id/save_tv"
                     android:gravity="center"
                     android:text="@string/ic_clear_all"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
                 <TextView
                     android:id="@+id/clear_all_text_tv"
@@ -223,8 +223,8 @@
                     android:layout_marginTop="4dp"
                     android:layout_toEndOf="@+id/save_tv"
                     android:text="@string/clear_all"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_text_size" />
 
                 <TextView
                     android:id="@+id/undo_tv"
@@ -236,9 +236,9 @@
                     android:layout_marginTop="4dp"
                     android:layout_toEndOf="@+id/clear_all_tv"
                     android:gravity="center"
-                    android:text="@string/ic_clear_all"
-                    android:textColor="#FFFFFF"
-                    android:textSize="25sp"
+                    android:text="@string/ic_undo"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size"
                     android:visibility="gone" />
 
                 <TextView
@@ -251,8 +251,8 @@
                     android:layout_marginTop="4dp"
                     android:layout_toEndOf="@+id/clear_all_tv"
                     android:text="@string/undo"
-                    android:textColor="#FFFFFF"
-                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_text_size"
                     android:visibility="gone" />
 
                 <TextView
@@ -262,8 +262,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:text="@string/ic_continue"
-                    android:textColor="#FFFFFF"
-                    android:textSize="40sp" />
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/editor_icon_size" />
 
             </RelativeLayout>
 

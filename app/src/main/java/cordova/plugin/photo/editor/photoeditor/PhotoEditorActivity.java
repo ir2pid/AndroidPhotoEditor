@@ -78,6 +78,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         RelativeLayout deleteRelativeLayout = (RelativeLayout) findViewById(R.id.delete_rl);
         TextView deleteTextView = (TextView) findViewById(R.id.delete_tv);
         TextView addImageEmojiTextView = (TextView) findViewById(R.id.add_image_emoji_tv);
+        TextView addFilterTextView = (TextView) findViewById(R.id.add_filter_tv);
         TextView saveTextView = (TextView) findViewById(R.id.save_tv);
         TextView saveTextTextView = (TextView) findViewById(R.id.save_text_tv);
         undoTextView = (TextView) findViewById(R.id.undo_tv);
@@ -103,6 +104,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         addTextView.setTypeface(newFont);
         addPencil.setTypeface(newFont);
         addImageEmojiTextView.setTypeface(newFont);
+        addFilterTextView.setTypeface(newFont);
         saveTextView.setTypeface(newFont);
         undoTextView.setTypeface(newFont);
         clearAllTextView.setTypeface(newFont);
@@ -149,6 +151,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
 
         closeTextView.setOnClickListener(this);
         addImageEmojiTextView.setOnClickListener(this);
+        addFilterTextView.setOnClickListener(this);
         addTextView.setOnClickListener(this);
         addPencil.setOnClickListener(this);
         saveTextView.setOnClickListener(this);
@@ -327,6 +330,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         if (v.getId() == R.id.close_tv) {
             onBackPressed();
         } else if (v.getId() == R.id.add_image_emoji_tv) {
+            mLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
+        } else if (v.getId() == R.id.add_filter_tv) {
             mLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
         } else if (v.getId() == R.id.add_text_tv) {
             openAddTextPopupWindow("", -1);

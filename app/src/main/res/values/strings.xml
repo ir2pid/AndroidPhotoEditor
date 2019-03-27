@@ -17,9 +17,11 @@
     <string name="ic_close">"\uf057"</string>
     <string name="ic_text">"\uf031"</string>
     <string name="ic_draw">""\uf1fc</string>
+    <string name="ic_filter">""\uf030</string>
     <string name="ic_images">"\uf03e"</string>
     <string name="ic_save">"\uf019"</string>
-    <string name="ic_clear_all">"\uf2ea"</string>
+    <string name="ic_clear_all">"\uf12d"</string>
+    <string name="ic_undo">"\uf2ea"</string>
     <string name="ic_continue">"\uf0a9"</string>
     <string name="ic_delete">"\uf2ed"</string>
     <string name="choose_from_gallery">Choose From Gallery</string>

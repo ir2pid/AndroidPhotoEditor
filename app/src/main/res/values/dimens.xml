@@ -1,4 +1,6 @@
 <resources>
+    <dimen name="editor_icon_size">25sp</dimen>
+    <dimen name="editor_text_size">15sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="image_loader_post_width">450dp</dimen>
 </resources>
