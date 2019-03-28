@@ -21,13 +21,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import cordova.plugin.photo.editor.photoeditor.widget.SlidingUpPanelLayout;
+import jp.co.cyberagent.android.gpuimage.GPUImageView;
+import jp.co.cyberagent.android.gpuimage.filter.GPUImageColorBurnBlendFilter;
+import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter;
+import jp.co.cyberagent.android.gpuimage.filter.GPUImageSepiaToneFilter;
+
 import com.ahmedadeltito.photoeditorsdk.BrushDrawingView;
 import com.ahmedadeltito.photoeditorsdk.OnPhotoEditorSDKListener;
 import com.ahmedadeltito.photoeditorsdk.PhotoEditorSDK;
@@ -54,6 +58,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
     private ArrayList<Integer> colorPickerColors;
     private int colorCodeTextView = -1;
     private PhotoEditorSDK photoEditorSDK;
+    private GPUImageView photoEditImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +93,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         TextView clearAllTextView = (TextView) findViewById(R.id.clear_all_tv);
         TextView clearAllTextTextView = (TextView) findViewById(R.id.clear_all_text_tv);
         TextView goToNextTextView = (TextView) findViewById(R.id.go_to_next_screen_tv);
-        ImageView photoEditImageView = (ImageView) findViewById(R.id.photo_edit_iv);
+        photoEditImageView = (GPUImageView) findViewById(R.id.photo_filter_iv);
+        //ImageView photoEditImageView = (ImageView) findViewById(R.id.photo_edit_iv);
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
         topShadow = findViewById(R.id.top_shadow);
         topShadowRelativeLayout = (RelativeLayout) findViewById(R.id.top_parent_rl);
@@ -98,7 +104,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         ViewPager pager = (ViewPager) findViewById(R.id.image_emoji_view_pager);
         PageIndicator indicator = (PageIndicator) findViewById(R.id.image_emoji_indicator);
 
-        photoEditImageView.setImageBitmap(bitmap);
+        photoEditImageView.setImage(bitmap);
 
         closeTextView.setTypeface(newFont);
         addTextView.setTypeface(newFont);
@@ -112,8 +118,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         deleteTextView.setTypeface(newFont);
 
         final List<Fragment> fragmentsList = new ArrayList<>();
-        fragmentsList.add(new ImageFragment());
         fragmentsList.add(new EmojiFragment());
+        fragmentsList.add(new ImageFragment());
 
         PreviewSlidePagerAdapter adapter = new PreviewSlidePagerAdapter(getSupportFragmentManager(), fragmentsList);
         pager.setAdapter(adapter);
@@ -137,10 +143,11 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
 
             @Override
             public void onPageSelected(int position) {
-                if (position == 0)
-                    mLayout.setScrollableView(((ImageFragment) fragmentsList.get(position)).imageRecyclerView);
-                else if (position == 1)
+                if (position == 0) {
                     mLayout.setScrollableView(((EmojiFragment) fragmentsList.get(position)).emojiRecyclerView);
+                } else if (position == 1) {
+                    mLayout.setScrollableView(((ImageFragment) fragmentsList.get(position)).imageRecyclerView);
+                }
             }
 
             @Override
@@ -165,18 +172,18 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         goToNextTextView.setOnClickListener(this);
 
         colorPickerColors = new ArrayList<>();
-        colorPickerColors.add(getResources().getColor(R.color.black));
-        colorPickerColors.add(getResources().getColor(R.color.blue_color_picker));
-        colorPickerColors.add(getResources().getColor(R.color.brown_color_picker));
+        colorPickerColors.add(getResources().getColor(R.color.yellow_green_color_picker));
         colorPickerColors.add(getResources().getColor(R.color.green_color_picker));
         colorPickerColors.add(getResources().getColor(R.color.orange_color_picker));
         colorPickerColors.add(getResources().getColor(R.color.red_color_picker));
+        colorPickerColors.add(getResources().getColor(R.color.black));
+        colorPickerColors.add(getResources().getColor(R.color.white));
+        colorPickerColors.add(getResources().getColor(R.color.brown_color_picker));
+        colorPickerColors.add(getResources().getColor(R.color.blue_color_picker));
         colorPickerColors.add(getResources().getColor(R.color.red_orange_color_picker));
         colorPickerColors.add(getResources().getColor(R.color.sky_blue_color_picker));
         colorPickerColors.add(getResources().getColor(R.color.violet_color_picker));
-        colorPickerColors.add(getResources().getColor(R.color.white));
         colorPickerColors.add(getResources().getColor(R.color.yellow_color_picker));
-        colorPickerColors.add(getResources().getColor(R.color.yellow_green_color_picker));
 
         new CountDownTimer(500, 100) {
 
@@ -184,7 +191,7 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             }
 
             public void onFinish() {
-                mLayout.setScrollableView(((ImageFragment) fragmentsList.get(0)).imageRecyclerView);
+                mLayout.setScrollableView(((EmojiFragment) fragmentsList.get(0)).emojiRecyclerView);
             }
 
         }.start();
@@ -197,6 +204,10 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
             }
         }
         return false;
+    }
+
+    public void addFilter(GPUImageFilter gpuImageFilter) {
+        photoEditorSDK.addFilter(gpuImageFilter);
     }
 
     public void addEmoji(String emojiName) {
@@ -332,7 +343,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         } else if (v.getId() == R.id.add_image_emoji_tv) {
             mLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
         } else if (v.getId() == R.id.add_filter_tv) {
-            mLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
+            addFilter(new GPUImageSepiaToneFilter());
+            //mLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
         } else if (v.getId() == R.id.add_text_tv) {
             openAddTextPopupWindow("", -1);
         } else if (v.getId() == R.id.add_pencil_tv) {

@@ -29,14 +29,25 @@
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true">
 
-                <ImageView
+                <jp.co.cyberagent.android.gpuimage.GPUImageView
+                    android:id="@+id/photo_filter_iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="centerCrop"
+                    app:gpuimage_show_loading="false"
+                    app:gpuimage_surface_type="texture_view"/>
+
+               <!-- <ImageView
                     android:id="@+id/photo_edit_iv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/app_name"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"/>-->
 
                 <com.ahmedadeltito.photoeditorsdk.BrushDrawingView
                     android:id="@+id/drawing_view"
@@ -151,7 +162,7 @@
                     android:id="@+id/add_filter_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/add_pencil_tv"
+                    android:layout_toStartOf="@+id/add_image_emoji_tv"
                     android:padding="15dp"
                     android:text="@string/ic_filter"
                     android:textColor="@color/white"
