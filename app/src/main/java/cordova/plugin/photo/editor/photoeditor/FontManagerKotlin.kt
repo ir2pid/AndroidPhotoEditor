@@ -4,12 +4,12 @@ import android.content.Context
 import android.graphics.Typeface
 
 
-object FontManager {
+object FontManagerKotlin {
 
     val FONTAWESOME = "FAsolid.ttf"
     val EMOJIONE = "emojione-android.ttf"
 
     fun getTypeface(context: Context, font: String): Typeface {
-        return Typeface.createFromAsset(context.getAssets(), font)
+        return Typeface.createFromAsset(context.assets, font)
     }
 }

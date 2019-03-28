@@ -28,7 +28,6 @@ import android.widget.TextView;
 
 import cordova.plugin.photo.editor.photoeditor.widget.SlidingUpPanelLayout;
 import jp.co.cyberagent.android.gpuimage.GPUImageView;
-import jp.co.cyberagent.android.gpuimage.filter.GPUImageColorBurnBlendFilter;
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageFilter;
 import jp.co.cyberagent.android.gpuimage.filter.GPUImageSepiaToneFilter;
 
@@ -71,8 +70,8 @@ public class PhotoEditorActivity extends AppCompatActivity implements View.OnCli
         options.inSampleSize = 1;
         Bitmap bitmap = BitmapFactory.decodeFile(selectedImagePath, options);
 
-        Typeface newFont = FontManager.INSTANCE.getTypeface(this, FontManager.INSTANCE.getFONTAWESOME());//Typeface.createFromAsset(getAssets(), "Eventtus-Icons.ttf");
-        emojiFont = FontManager.INSTANCE.getTypeface(this, FontManager.INSTANCE.getEMOJIONE());//Typeface.createFromAsset(getAssets(), "emojione-android.ttf");
+        Typeface newFont = FontManager.getTypeface(this, FontManagerKotlin.INSTANCE.getFONTAWESOME());//Typeface.createFromAsset(getAssets(), "Eventtus-Icons.ttf");
+        emojiFont = FontManager.getTypeface(this, FontManagerKotlin.INSTANCE.getEMOJIONE());//Typeface.createFromAsset(getAssets(), "emojione-android.ttf");
 
         BrushDrawingView brushDrawingView = (BrushDrawingView) findViewById(R.id.drawing_view);
         drawingViewColorPickerRecyclerView = (RecyclerView) findViewById(R.id.drawing_view_color_picker_recycler_view);
